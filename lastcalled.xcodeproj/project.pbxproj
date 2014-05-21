@@ -21,6 +21,7 @@
 		E3B840E5192C976200F6BEB9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3B840C7192C976100F6BEB9 /* UIKit.framework */; };
 		E3B840ED192C976200F6BEB9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E3B840EB192C976200F6BEB9 /* InfoPlist.strings */; };
 		E3B840EF192C976200F6BEB9 /* lastcalledTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B840EE192C976200F6BEB9 /* lastcalledTests.m */; };
+		E3B840F9192C9D2D00F6BEB9 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3B840F8192C9D2D00F6BEB9 /* AddressBook.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		E3B840EA192C976200F6BEB9 /* lastcalledTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "lastcalledTests-Info.plist"; sourceTree = "<group>"; };
 		E3B840EC192C976200F6BEB9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E3B840EE192C976200F6BEB9 /* lastcalledTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = lastcalledTests.m; sourceTree = "<group>"; };
+		E3B840F8192C9D2D00F6BEB9 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3B840F9192C9D2D00F6BEB9 /* AddressBook.framework in Frameworks */,
 				E3B840C6192C976100F6BEB9 /* CoreGraphics.framework in Frameworks */,
 				E3B840C8192C976100F6BEB9 /* UIKit.framework in Frameworks */,
 				E3B840C4192C976100F6BEB9 /* Foundation.framework in Frameworks */,
@@ -101,6 +104,7 @@
 		E3B840C2192C976100F6BEB9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E3B840F8192C9D2D00F6BEB9 /* AddressBook.framework */,
 				E3B840C3192C976100F6BEB9 /* Foundation.framework */,
 				E3B840C5192C976100F6BEB9 /* CoreGraphics.framework */,
 				E3B840C7192C976100F6BEB9 /* UIKit.framework */,
