@@ -12,7 +12,7 @@
 
 @end
 
-@implementation ViewController
+@implementation ViewController 
 @synthesize addressBookNum;
 /**
  *  Load contact data from addressbok this should be done asynch 
