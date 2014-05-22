@@ -8,7 +8,8 @@
 
 #import "MainCollectionViewController.h"
 #import <AddressBook/AddressBook.h>
-
+#import "ASHSpringyCollectionViewFlowLayout.h"
+#import "AppDelegate.h"
 @interface MainCollectionViewController ()
 
 @end
@@ -23,7 +24,8 @@ static NSString *CellIdentifier = @"Cell";
    
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:CellIdentifier];
     self.collectionView.backgroundColor = [UIColor whiteColor];
-    
+    UICollectionViewFlowLayout *layout= [[ASHSpringyCollectionViewFlowLayout alloc] init];
+    self.collectionView.collectionViewLayout = layout;
     
     [self getAllContacts];
 }
@@ -37,16 +39,16 @@ static NSString *CellIdentifier = @"Cell";
 {
     [super viewDidAppear:animated];
     
-    /*
-     *What does invalidateLayout ?
-     */
-    //[self.collectionViewLayout invalidateLayout];
+            /**
+             *What does invalidateLayout ?
+             */
+             //[self.collectionViewLayout invalidateLayout];
 }
 
 #pragma mark - UICollectionViewDataSource Methods
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 10000;
+    return 10;
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -56,10 +58,10 @@ static NSString *CellIdentifier = @"Cell";
     
     return cell;
 }
-/**
- *  Load contact data from addressbok this should be done asynch
- *
- */
+        /**
+         *  Load contact data from addressbok this should be done asynch
+         *
+         */
 - (void) getAllContacts
 {
     ABAddressBookRef addressBookRef = ABAddressBookCreateWithOptions(NULL, NULL);
@@ -102,6 +104,29 @@ static NSString *CellIdentifier = @"Cell";
     else {
         // Send an alert telling user to change privacy setting in settings app
     }
+}
+- (void) saveDataToPresistentStore{
+    
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+   
+    
+
+    // NSManagedObjectContext *context =
+    //[appDelegate managedObjectContext];
+    
+    /*NSManagedObject *newContact;
+    newContact = [NSEntityDescription
+                  insertNewObjectForEntityForName:@"Contacts"
+                  inManagedObjectContext:context];
+    [newContact setValue: _name.text forKey:@"name"];
+    [newContact setValue: _address.text forKey:@"address"];
+    [newContact setValue: _phone.text forKey:@"phone"];
+    _name.text = @"";
+    _address.text = @"";
+    _phone.text = @"";
+    NSError *error;
+    [context save:&error];
+    _status.text = @"Contact saved";*/
 }
 
 @end

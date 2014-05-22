@@ -11,15 +11,23 @@
 #import "MainCollectionViewController.h"
 
 @implementation AppDelegate
+@synthesize managedObjectContext = managedObjectContext;
+@synthesize managedObjectModel = managedObjectModel;
+@synthesize persistentStoreCoordinator = persistentStoreCoordinator;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
-    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController *mainViewController = [storyboard instantiateInitialViewController];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
-    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[[MainCollectionViewController alloc] initWithCollectionViewLayout:[[ASHSpringyCollectionViewFlowLayout alloc] init]]];
+    self.window.rootViewController = mainViewController;
+   
+    /*  self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[[MainCollectionViewController alloc] initWithCollectionViewLayout:[[ASHSpringyCollectionViewFlowLayout alloc] init]]];
+    */
+    
     [self.window makeKeyAndVisible];
+   
     return YES;
 }
 							
@@ -49,5 +57,9 @@
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+/**/
+
+
 
 @end
