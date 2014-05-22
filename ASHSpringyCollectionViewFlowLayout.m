@@ -74,9 +74,9 @@
         CGPoint center = item.center;
         UIAttachmentBehavior *springBehaviour = [[UIAttachmentBehavior alloc] initWithItem:item attachedToAnchor:center];
         
-        springBehaviour.length = 0.4f;
-        springBehaviour.damping = 0.4f;
-        springBehaviour.frequency = 1.0f;
+        springBehaviour.length = 0.5f;
+        springBehaviour.damping = 0.2f;
+        springBehaviour.frequency = 1.2f;
         
         // If our touchLocation is not (0,0), we'll need to adjust our item's center "in flight"
         if (!CGPointEqualToPoint(CGPointZero, touchLocation)) {

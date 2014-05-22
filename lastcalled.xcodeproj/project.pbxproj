@@ -59,8 +59,8 @@
 		E3B840F8192C9D2D00F6BEB9 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		E3B840FA192CAB5300F6BEB9 /* MainCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainCollectionViewController.h; sourceTree = "<group>"; };
 		E3B840FB192CAB5300F6BEB9 /* MainCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainCollectionViewController.m; sourceTree = "<group>"; };
-		E3B84100192CF48200F6BEB9 /* ASHSpringyCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASHSpringyCollectionViewFlowLayout.h; sourceTree = "<group>"; };
-		E3B84101192CF48200F6BEB9 /* ASHSpringyCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASHSpringyCollectionViewFlowLayout.m; sourceTree = "<group>"; };
+		E3B84100192CF48200F6BEB9 /* ASHSpringyCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASHSpringyCollectionViewFlowLayout.h; path = ../ASHSpringyCollectionViewFlowLayout.h; sourceTree = "<group>"; };
+		E3B84101192CF48200F6BEB9 /* ASHSpringyCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASHSpringyCollectionViewFlowLayout.m; path = ../ASHSpringyCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,8 +91,6 @@
 		E3B840B7192C976100F6BEB9 = {
 			isa = PBXGroup;
 			children = (
-				E3B84100192CF48200F6BEB9 /* ASHSpringyCollectionViewFlowLayout.h */,
-				E3B84101192CF48200F6BEB9 /* ASHSpringyCollectionViewFlowLayout.m */,
 				E3B840C9192C976100F6BEB9 /* lastcalled */,
 				E3B840E8192C976200F6BEB9 /* lastcalledTests */,
 				E3B840C2192C976100F6BEB9 /* Frameworks */,
@@ -124,6 +122,8 @@
 		E3B840C9192C976100F6BEB9 /* lastcalled */ = {
 			isa = PBXGroup;
 			children = (
+				E3B84100192CF48200F6BEB9 /* ASHSpringyCollectionViewFlowLayout.h */,
+				E3B84101192CF48200F6BEB9 /* ASHSpringyCollectionViewFlowLayout.m */,
 				E3B840D2192C976100F6BEB9 /* AppDelegate.h */,
 				E3B840D3192C976100F6BEB9 /* AppDelegate.m */,
 				E3B840D5192C976100F6BEB9 /* Main.storyboard */,
