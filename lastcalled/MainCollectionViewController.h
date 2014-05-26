@@ -12,4 +12,6 @@
 @interface MainCollectionViewController : UICollectionViewController
 @property NSString * addressBookNum;
 @property NSArray * peopleInContactList;
+@property NSManagedObjectContext * managedObjectContext;
+@property (nonatomic,strong) NSArray* fetchedRecordsArray;
 @end

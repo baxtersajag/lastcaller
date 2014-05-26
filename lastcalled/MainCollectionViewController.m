@@ -10,12 +10,13 @@
 #import <AddressBook/AddressBook.h>
 #import "ASHSpringyCollectionViewFlowLayout.h"
 #import "AppDelegate.h"
+#import "Records.h"
 @interface MainCollectionViewController ()
 
 @end
 
 @implementation MainCollectionViewController
-@synthesize addressBookNum,peopleInContactList;
+@synthesize addressBookNum,peopleInContactList, managedObjectContext, fetchedRecordsArray;
 static NSString *CellIdentifier = @"Cell";
 
 -(void)viewDidLoad
@@ -26,6 +27,13 @@ static NSString *CellIdentifier = @"Cell";
     self.collectionView.backgroundColor = [UIColor whiteColor];
     UICollectionViewFlowLayout *layout= [[ASHSpringyCollectionViewFlowLayout alloc] init];
     self.collectionView.collectionViewLayout = layout;
+    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+    self.managedObjectContext = appDelegate.managedObjectContext;
+    
+    /* Fetch records
+     *
+    */
+    self.fetchedRecordsArray = [appDelegate getAllPhoneBookRecords];
     
     [self getAllContacts];
 }
@@ -40,7 +48,7 @@ static NSString *CellIdentifier = @"Cell";
     [super viewDidAppear:animated];
     
             /**
-             *What does invalidateLayout ?
+             *      What does invalidateLayout ?
              */
              //[self.collectionViewLayout invalidateLayout];
 }
@@ -48,7 +56,7 @@ static NSString *CellIdentifier = @"Cell";
 #pragma mark - UICollectionViewDataSource Methods
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 10;
+    return [self.fetchedRecordsArray count];
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -61,7 +69,8 @@ static NSString *CellIdentifier = @"Cell";
         /**
          *  Load contact data from addressbok this should be done asynch
          *
-         */
+         **/
+
 - (void) getAllContacts
 {
     ABAddressBookRef addressBookRef = ABAddressBookCreateWithOptions(NULL, NULL);
@@ -92,7 +101,7 @@ static NSString *CellIdentifier = @"Cell";
             
             NSLog(@"\n%@\n", [[UIDevice currentDevice] name]);
             
-            
+            [self addPhoneBookEntry:firstName phoneNumber:@"0734481300"];
             /*for (CFIndex i = 0; i < ABMultiValueGetCount(phoneNumbers); i++) {
                 NSString *phoneNumber = (__bridge_transfer NSString *) ABMultiValueCopyValueAtIndex(phoneNumbers, i);
              
@@ -105,28 +114,23 @@ static NSString *CellIdentifier = @"Cell";
         // Send an alert telling user to change privacy setting in settings app
     }
 }
-- (void) saveDataToPresistentStore{
+- (void)addPhoneBookEntry:(NSString *) name phoneNumber: (NSString*) phoneNumber
+{
+    // Add Entry to PhoneBook Data base and reset all fields
     
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    //  1
+    Records * newEntry = [NSEntityDescription insertNewObjectForEntityForName:@"Records"
+                                                      inManagedObjectContext:self.managedObjectContext];
+    //  2
+    newEntry.name = @"Test name";
+    newEntry.phoneNumber = @"0734481300";
    
-    
-
-    // NSManagedObjectContext *context =
-    //[appDelegate managedObjectContext];
-    
-    /*NSManagedObject *newContact;
-    newContact = [NSEntityDescription
-                  insertNewObjectForEntityForName:@"Contacts"
-                  inManagedObjectContext:context];
-    [newContact setValue: _name.text forKey:@"name"];
-    [newContact setValue: _address.text forKey:@"address"];
-    [newContact setValue: _phone.text forKey:@"phone"];
-    _name.text = @"";
-    _address.text = @"";
-    _phone.text = @"";
+    //  3
     NSError *error;
-    [context save:&error];
-    _status.text = @"Contact saved";*/
+    if (![self.managedObjectContext save:&error]) {
+        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+    }
+  
 }
 
 @end
