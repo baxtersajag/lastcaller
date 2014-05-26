@@ -22,9 +22,10 @@ static NSString *CellIdentifier = @"Cell";
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-   
+    
+    
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:CellIdentifier];
-    self.collectionView.backgroundColor = [UIColor whiteColor];
+    self.collectionView.backgroundColor = [UIColor blackColor];
     UICollectionViewFlowLayout *layout= [[ASHSpringyCollectionViewFlowLayout alloc] init];
     self.collectionView.collectionViewLayout = layout;
     AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
@@ -61,11 +62,43 @@ static NSString *CellIdentifier = @"Cell";
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
+  
+    UIImageView *imgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"hiq_hi_res.gif"]];
+    [imgView setFrame:cell.bounds];
+    imgView.contentMode = UIViewContentModeScaleAspectFit;
     
-    cell.backgroundColor = [UIColor blackColor];
-    
+    cell.backgroundColor = [UIColor whiteColor];
+    [cell addSubview:imgView];
     return cell;
 }
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"indexPath %ld", (long)indexPath.row);
+    CGSize cellSize = CGSizeMake(90.0, 130.0);
+
+    return cellSize;
+}
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    /**
+     *      Add logik here that gets correct number for specifik cell.
+     *
+     **/
+    
+    NSString *number = @"";
+    NSString *phoneNumber = [@"tel://" stringByAppendingString:number];
+    NSURL *phoneUrl = [NSURL URLWithString:phoneNumber];
+  
+    if([[UIApplication sharedApplication] canOpenURL:phoneUrl]) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber]];
+    }
+    else {
+        //Show error message to user, etc.
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Sorry" message:@"Youre device cant call ppl." delegate:self cancelButtonTitle:@"Close" otherButtonTitles:nil];
+        [alertView show];
+    }
+}
+
+
         /**
          *  Load contact data from addressbok this should be done asynch
          *
@@ -132,5 +165,7 @@ static NSString *CellIdentifier = @"Cell";
     }
   
 }
+
+
 
 @end

@@ -27,6 +27,7 @@
 		E3B84110192E3E0900F6BEB9 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3B8410F192E3E0900F6BEB9 /* CoreData.framework */; };
 		E3BA9ECF1933400F0079882E /* PhoneBook.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E3BA9ECD1933400F0079882E /* PhoneBook.xcdatamodeld */; };
 		E3BA9ED2193341CA0079882E /* Records.m in Sources */ = {isa = PBXBuildFile; fileRef = E3BA9ED1193341CA0079882E /* Records.m */; };
+		E3BA9ED619337C540079882E /* hiq_hi_res.gif in Resources */ = {isa = PBXBuildFile; fileRef = E3BA9ED519337C540079882E /* hiq_hi_res.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		E3BA9ECE1933400F0079882E /* PhoneBook.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PhoneBook.xcdatamodel; sourceTree = "<group>"; };
 		E3BA9ED0193341CA0079882E /* Records.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Records.h; sourceTree = "<group>"; };
 		E3BA9ED1193341CA0079882E /* Records.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Records.m; sourceTree = "<group>"; };
+		E3BA9ED519337C540079882E /* hiq_hi_res.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = hiq_hi_res.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 		E3B840B7192C976100F6BEB9 = {
 			isa = PBXGroup;
 			children = (
+				E3BA9ED519337C540079882E /* hiq_hi_res.gif */,
 				E3BA9ECD1933400F0079882E /* PhoneBook.xcdatamodeld */,
 				E3BA9ED0193341CA0079882E /* Records.h */,
 				E3BA9ED1193341CA0079882E /* Records.m */,
@@ -255,6 +258,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E3B840DC192C976100F6BEB9 /* Images.xcassets in Resources */,
+				E3BA9ED619337C540079882E /* hiq_hi_res.gif in Resources */,
 				E3B840CE192C976100F6BEB9 /* InfoPlist.strings in Resources */,
 				E3B840D7192C976100F6BEB9 /* Main.storyboard in Resources */,
 			);
